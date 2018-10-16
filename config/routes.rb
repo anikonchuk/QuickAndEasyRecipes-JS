@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   resources :users, only: [:new, :create] do
-    resources :recipes, only: [:index, :new, :create]
+    resources :recipes, only: [:index, :new, :create, :edit, :update]
   end
-  resources :recipes, except: [:new, :create]
+  resources :recipes, except: [:new, :create, :edit, :update]
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
