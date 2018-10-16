@@ -12,8 +12,9 @@
   <body>
     <% if logged_in? %>
       <div>
+        <%= link_to "All Recipes", recipes_path %>
         <%= link_to "#{current_user.username}'s Recipes", user_recipes_path(current_user) %>
-        <%= link_to "Create a New Recipe", new_user_recipe_path(current_user) %>
+        <%= link_to "Create a New Recipe", new_user_recipe_path(current_user) %> 
         <%= form_tag "/logout" do %>
           <input type="submit" value="Logout">
         <% end %>
