@@ -8,4 +8,8 @@ class Recipe < ApplicationRecord
   scope :by_recently_added, -> { order(created_at: :desc) }
   scope :by_name, -> { order(name: :asc) }
   scope :by_shortest_time, -> { order(time: :asc) }
+
+  def ingredient_count
+    self.ingredients.count
+  end
 end
