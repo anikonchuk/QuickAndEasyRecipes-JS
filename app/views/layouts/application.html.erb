@@ -14,7 +14,7 @@
       <div>
         <%= link_to "#{current_user.username}'s Recipes", user_recipes_path(current_user) %>
         <%= link_to "Create a New Recipe", new_user_recipe_path(current_user) %>
-        <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+        <%= form_tag "/logout" do %>
           <input type="submit" value="Logout">
         <% end %>
       </div>
