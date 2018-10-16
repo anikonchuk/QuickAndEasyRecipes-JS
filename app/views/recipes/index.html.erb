@@ -3,3 +3,5 @@
 <% else %>
   <h1>All Recipes</h1>
 <% end %>
+
+<%= render partial: "recipe_table", locals: {recipes: @recipes} %>
