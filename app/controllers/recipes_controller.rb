@@ -16,6 +16,17 @@ class RecipesController < ApplicationController
     end
   end
 
+  def new
+    if !User.exists?(params[:user_id])
+      redirect_to recipes_path, alert: "User not found."
+    else
+      @recipe = Recipe.new(user_id: params[:user_id])
+      5.times do
+        @recipe.ingredients.build
+      end
+    end
+  end 
+
   private
 
   def require_login
