@@ -2,3 +2,10 @@
 <p><strong>Time Required</strong></p>
 <p><%= @recipe.time %> minutes</p>
 <p><strong>Ingredients</strong></p>
+<ul>
+  <% @recipe.quantities.each do |quantity| %>
+    <li><%= quantity.amount %> <%= quantity.ingredient.name %></li>
+  <% end %>
+</ul>
+<p><strong>Instructions</strong></p>
+<p><%= @recipe.instructions %></p>
