@@ -4,4 +4,13 @@
     <th>Time</th>
     <th>Ingredient Count</th>
   </thead>
+  <tbody>
+    <% recipes.each do |recipe| %>
+      <tr>
+        <td><%= recipe.name %></td>
+        <td><%= recipe.time %> minutes</td>
+        <td><%= recipe.ingredient_count %> ingredients</td>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
