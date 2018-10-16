@@ -5,6 +5,7 @@ class Recipe < ApplicationRecord
 
   validates :name, :instructions, :time, presence: true
 
-  scope :recently_added, -> { order(created_at: :desc) }
+  scope :by_recently_added, -> { order(created_at: :desc) }
   scope :by_name, -> { order(name: :asc) }
+  scope :by_shortest_time, -> { order(time: :asc) }
 end
