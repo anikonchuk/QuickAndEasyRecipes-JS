@@ -12,7 +12,7 @@
     <%= i.text_field :name %>
     <%= i.fields_for :quantities do |q| %>
       <%= q.label :amount %>
-      <%= q.text_field :amount %>
+      <%= q.text_field :amount %><br>
     <% end %>
   <% end %><br>
   <%= f.label :instructions %><br>

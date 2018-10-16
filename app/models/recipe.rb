@@ -9,6 +9,8 @@ class Recipe < ApplicationRecord
   scope :by_name, -> { order(name: :asc) }
   scope :by_shortest_time, -> { order(time: :asc) }
 
+  accepts_nested_attributes_for :ingredients
+
   def ingredient_count
     self.ingredients.count
   end
