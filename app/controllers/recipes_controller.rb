@@ -29,7 +29,8 @@ class RecipesController < ApplicationController
   end
 
   def create
-    raise params.inspect
+    @recipe = Recipe.new(recipe_params)
+    
   end
 
   private
@@ -41,5 +42,7 @@ class RecipesController < ApplicationController
   def recipe_params
     params.require(:recipe).permit(:name, :time, :instructions, ingredients_attributes: [:name, quantities: [:amount]])
   end
+
+#{}"recipe"=>{"user_id"=>"1", "name"=>"PB & J", "time"=>"5", "ingredients_attributes"=>{"0"=>{"name"=>"Bread", "quantities"=>{"amount"=>"2 slices"}}, "1"=>{"name"=>"Peanut Butter", "quantities"=>{"amount"=>"1 tbsp"}}, "2"=>{"name"=>"Jelly", "quantities"=>{"amount"=>"1 tbsp"}}, "3"=>{"name"=>"", "quantities"=>{"amount"=>""}}, "4"=>{"name"=>"", "quantities"=>{"amount"=>""}}}, "instructions"=>"Spread peanut butter on one slice of bread. Spread jelly on the other. Sandwich together."}
 
 end

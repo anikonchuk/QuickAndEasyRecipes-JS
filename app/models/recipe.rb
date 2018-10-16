@@ -14,4 +14,13 @@ class Recipe < ApplicationRecord
   def ingredient_count
     self.ingredients.count
   end
+
+  def ingredients_attributes=(ingredients_attributes)
+    ingredients_attributes.each do |ingredients_attribute|
+      if ingredients_attribute["name"] != ""
+        ingredient = Ingredient.find_or_create_by(name: ingredients_attribute["name"])
+        self.quantities.build(ingredient: ingredient, amount: ingredients_attribute["quantities"]["amount"])
+      end
+    end
+  end
 end
