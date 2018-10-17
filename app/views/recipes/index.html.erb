@@ -2,6 +2,11 @@
   <h1><%= @user.username %>'s Recipes</h1>
 <% else %>
   <h1>All Recipes</h1>
+  <div>
+    <%= link_to "View by name", recipes_name_path %><br>
+    <%= link_to "View by most recently added", recipes_recent_path %><br>
+    <%= link_to "View by shortest time to make", recipes_shortest_path %><br>
+  </div>
 <% end %>
-
+<br>
 <%= render partial: "recipe_table", locals: {recipes: @recipes} %>
