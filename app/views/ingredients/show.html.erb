@@ -3,7 +3,7 @@
 <p><%= @ingredient.name %> is used in the following recipes:</p>
 
 <ul>
-  <% @ingredient.recipes.each do |recipe| %>
+  <% @ingredient.recipes.uniq.each do |recipe| %>
     <li><%= link_to recipe.name, recipe_path(recipe) %></li>
   <% end %>
 </ul>
