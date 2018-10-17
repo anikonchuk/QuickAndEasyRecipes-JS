@@ -67,15 +67,16 @@ class RecipesController < ApplicationController
   end
 
   def shortest
-    @recipes = Recipes.by_shortest_time
+    @recipes = Recipe.by_shortest_time
   end
 
   def name
-    @recipes = Recipes.by_name
+    @recipes = Recipe.by_name
+    render 'name'
   end
 
   def recent
-    @recipes = Recipes.by_recently_added
+    @recipes = Recipe.by_recently_added
   end
 
   private
