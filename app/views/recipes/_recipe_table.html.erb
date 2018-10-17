@@ -7,7 +7,7 @@
   <tbody>
     <% recipes.each do |recipe| %>
       <tr>
-        <td><%= recipe.name %></td>
+        <td><%= link_to recipe.name, recipe_path(recipe) %></td>
         <td><%= recipe.time %> minutes</td>
         <td><%= recipe.ingredient_count %> ingredients</td>
       </tr>
