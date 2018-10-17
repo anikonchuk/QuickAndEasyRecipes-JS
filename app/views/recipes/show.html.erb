@@ -1,5 +1,5 @@
 <h1><%= @recipe.name %></h1>
-<p>Posted by <%= link_to "#{@recipe.user.username}", user_recipes_path(@recipe.user) %></p>
+<p>Posted by <%= link_to @recipe.user.username, user_recipes_path(@recipe.user) %></p>
 <p><strong>Time Required</strong></p>
 <p><%= @recipe.time %> minutes</p>
 <p><strong>Ingredients</strong></p>
