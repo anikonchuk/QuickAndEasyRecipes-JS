@@ -1,16 +1,7 @@
 <h1>Sign Up</h1>
 <h3>Sign up for a new account below.</h3>
 
-<% if @user.errors.any? %>
-  <div id ="error_explanation">
-    <h2>There were some errors.</h2>
-    <ul>
-      <% @user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+<%= render partial: "recipes/errors", locals: {object: @user} %>
 
 <%= form_for @user do |f| %>
   <%= f.label :username %><br>
