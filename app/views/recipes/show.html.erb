@@ -12,5 +12,8 @@
 <p><%= @recipe.instructions %></p>
 <br>
 <% if current_user == @recipe.user %>
-  <%= link_to "Edit this recipe", edit_user_recipe_path(@recipe.user, @recipe) %>
+  <%= link_to "Edit this recipe", edit_user_recipe_path(@recipe.user, @recipe) %><br>
+  <%= form_tag recipe_path(@recipe), method: "delete" do %>
+    <%= submit_tag "Delete #{@recipe.name}" %>
+  <% end %>
 <% end %>
