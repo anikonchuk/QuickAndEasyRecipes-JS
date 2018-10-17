@@ -66,6 +66,18 @@ class RecipesController < ApplicationController
     redirect_to recipes_path
   end
 
+  def shortest
+    @recipes = Recipes.by_shortest_time
+  end
+
+  def name
+    @recipes = Recipes.by_name
+  end
+
+  def recent
+    @recipes = Recipes.by_recently_added
+  end
+
   private
 
   def require_login

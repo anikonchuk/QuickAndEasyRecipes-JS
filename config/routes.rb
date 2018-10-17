@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   get '/recipes/shortest' => 'recipes#shortest'
   get '/recipes/name' => 'recipes#name'
+  get '/recipes/recent' => 'recipes#recent'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
