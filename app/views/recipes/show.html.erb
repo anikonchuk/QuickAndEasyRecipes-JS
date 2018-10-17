@@ -5,7 +5,7 @@
 <p><strong>Ingredients</strong></p>
 <ul>
   <% @recipe.quantities.each do |quantity| %>
-    <li><%= quantity.amount %> <%= quantity.ingredient.name %></li>
+    <li><%= quantity.amount %> <%= link_to quantity.ingredient.name, ingredient_path(quantity.ingredient) %></li>
   <% end %>
 </ul>
 <p><strong>Instructions</strong></p>
