@@ -81,10 +81,6 @@ class RecipesController < ApplicationController
 
   private
 
-  def require_login
-    redirect_to root_path unless session.include? :user_id
-  end
-
   def recipe_params
     params.require(:recipe).permit(:name, :user_id, :time, :instructions, ingredients_attributes: [:name, quantities: [:amount]])
   end
