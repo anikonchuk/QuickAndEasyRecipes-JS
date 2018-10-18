@@ -30,6 +30,7 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
+    @user = User.find_by(id: params[:user_id])
     if @recipe.save
       redirect_to recipes_path
     else
@@ -59,6 +60,7 @@ class RecipesController < ApplicationController
 
   def update
     @recipe = Recipe.find_by(id: params[:id])
+    @user = User.find_by(id: params[:user_id])
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe)
     else
