@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/recipes/name' => 'recipes#name'
   get '/recipes/recent' => 'recipes#recent'
 
-  resources :users, only: [:new, :create] do
+  resources :users, only: [:new, :create, :index] do
     resources :recipes, only: [:index, :new, :create, :edit, :update]
   end
   resources :recipes, except: [:new, :create, :edit, :update]
