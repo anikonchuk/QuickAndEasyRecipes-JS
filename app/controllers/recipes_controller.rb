@@ -19,7 +19,7 @@ class RecipesController < ApplicationController
   def new
     @user = User.find_by(id: params[:user_id])
     if !User.exists?(params[:user_id])
-      redirect_to recipes_path, alert: "User not found."
+      redirect_to recipes_path, flash[:alert] = "User not found."
     else
       @recipe = Recipe.new(user_id: params[:user_id])
       5.times do
@@ -48,13 +48,17 @@ class RecipesController < ApplicationController
   def edit
     @user = User.find_by(id: params[:user_id])
     if @user.nil?
-      redirect_to recipes_path, alert: "User not found"
+      redirect_to recipes_path, flash[:alert] = "User not found"
     else
       @recipe = @user.recipes.find_by(id: params[:id])
-      5.times do
-        @recipe.ingredients.build
+      if @recipe.nil?
+        flash[:alert] = "Recipe not found"
+        redirect_to user_recipes_path(@user)
+      else
+        5.times do
+          @recipe.ingredients.build
+        end
       end
-      redirect_to user_recipes_path(@user), alert: "Recipe not found" if @recipe.nil?
     end
   end
 
