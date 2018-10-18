@@ -5,5 +5,5 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: { case_sensitive: false }
 
-  scope :by_name, -> { order(name: :asc) }
+  scope :by_name, -> { order(username: :asc) }
 end
