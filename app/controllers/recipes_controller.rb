@@ -33,6 +33,9 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipes_path
     else
+      5.times do
+        @recipe.ingredients.build
+      end
       render 'new'
     end
   end
