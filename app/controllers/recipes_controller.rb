@@ -50,6 +50,9 @@ class RecipesController < ApplicationController
       redirect_to recipes_path, alert: "User not found"
     else
       @recipe = @user.recipes.find_by(id: params[:id])
+      5.times do
+        @recipe.ingredients.build
+      end
       redirect_to user_recipes_path(@user), alert: "Recipe not found" if @recipe.nil?
     end
   end
