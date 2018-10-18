@@ -16,15 +16,11 @@ class Recipe < ApplicationRecord
   end
 
   def ingredients_attributes=(ingredients_attributes)
+    self.quantities.destroy_all
     ingredients_attributes.each do |ingredients_attribute|
       if ingredients_attribute[1]["name"] != ""
         ingredient = Ingredient.find_or_create_by(name: ingredients_attribute[1]["name"])
-        quantity = self.quantities.find_by(ingredient_id: ingredient.id)
-        if quantity
-          quantity.update(amount: ingredients_attribute[1]["quantities"]["amount"])
-        else
-          self.quantities.build(ingredient: ingredient, amount: ingredients_attribute[1]["quantities"]["amount"])
-        end
+        self.quantities.build(ingredient: ingredient, amount: ingredients_attribute[1]["quantities"]["amount"])
       end
     end
   end
