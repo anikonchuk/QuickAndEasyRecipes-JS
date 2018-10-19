@@ -22,7 +22,7 @@ class RecipesController < ApplicationController
       redirect_to recipes_path, flash[:alert] = "User not found."
     else
       @recipe = Recipe.new(user_id: params[:user_id])
-      5.times do
+      10.times do
         @recipe.ingredients.build
       end
     end
@@ -34,7 +34,7 @@ class RecipesController < ApplicationController
     if @recipe.save
       redirect_to recipes_path
     else
-      5.times do
+      10.times do
         @recipe.ingredients.build
       end
       render 'new'
@@ -68,6 +68,9 @@ class RecipesController < ApplicationController
     if @recipe.update(recipe_params)
       redirect_to recipe_path(@recipe)
     else
+      5.times do
+        @recipe.ingredients.build
+      end
       render 'edit'
     end
   end
