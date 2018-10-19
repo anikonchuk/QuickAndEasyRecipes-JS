@@ -6,12 +6,12 @@
   <%= f.number_field :time %> minutes <br>
   <%= f.label :ingredients %><br>
   <%= f.fields_for :ingredients do |i| %>
+  <%= i.label :name %>
+  <%= i.text_field :name %><br>
     <%= i.fields_for :quantities do |q| %>
       <%= q.label :amount %>
       <%= q.text_field :amount %>
     <% end %>
-    <%= i.label :name %>
-    <%= i.text_field :name %><br>
   <% end %><br>
   <%= f.label :instructions %><br>
   <%= f.text_area :instructions %><br>
