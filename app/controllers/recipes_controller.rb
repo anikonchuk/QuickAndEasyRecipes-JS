@@ -23,7 +23,7 @@ class RecipesController < ApplicationController
     else
       @recipe = Recipe.new(user_id: params[:user_id])
       10.times do
-        @recipe.ingredients.build
+        @recipe.quantities.build
       end
     end
   end
@@ -35,7 +35,7 @@ class RecipesController < ApplicationController
       redirect_to recipes_path
     else
       10.times do
-        @recipe.ingredients.build
+        @recipe.quantities.build
       end
       render 'new'
     end
@@ -56,7 +56,7 @@ class RecipesController < ApplicationController
         redirect_to user_recipes_path(@user)
       else
         5.times do
-          @recipe.ingredients.build
+          @recipe.quantities.build
         end
       end
     end
@@ -69,7 +69,7 @@ class RecipesController < ApplicationController
       redirect_to recipe_path(@recipe)
     else
       5.times do
-        @recipe.ingredients.build
+        @recipe.quantities.build
       end
       render 'edit'
     end
