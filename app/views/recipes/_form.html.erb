@@ -5,14 +5,14 @@
   <%= f.label :time %><br>
   <%= f.number_field :time %> minutes <br>
   <%= f.label :ingredients %><br>
-  <%= f.fields_for :ingredients do |i| %>
-  <%= i.label :name %>
-  <%= i.text_field :name %><br>
-    <%= i.fields_for :quantities do |q| %>
-      <%= q.label :amount %>
-      <%= q.text_field :amount %>
+  <%= f.fields_for :quantities do |q| %>
+    <%= q.label :amount %>
+    <%= q.text_field :amount %><br>
+    <%= q.fields_for :ingredients do |i| %>
+      <%= i.label :name %>
+      <%= i.text_field :name %><br>
     <% end %>
-  <% end %><br>
+  <% end %>
   <%= f.label :instructions %><br>
   <%= f.text_area :instructions %><br>
   <%= f.submit %>
