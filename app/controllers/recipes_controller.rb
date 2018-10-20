@@ -47,13 +47,11 @@ class RecipesController < ApplicationController
   end
 
   def edit
-    @user = User.find_by(id: params[:user_id])
-    if @user.nil?
-      redirect_to recipes_path, flash[:alert] = "User not found"
-    else
+    if current_user.id == params[:user_id].to_i
       @recipe = @user.recipes.find_by(id: params[:id])
+      @user = current_user
       if @recipe.nil?
-        flash[:alert] = "Recipe not found"
+        flash[:alert] = "Recipe not found in your collection."
         redirect_to user_recipes_path(@user)
       else
         5.times do
@@ -61,6 +59,9 @@ class RecipesController < ApplicationController
           quantity.build_ingredient
         end
       end
+    else
+      flash[:alert] = "You are not authorized to edit another user's recipe."
+      redirect_to recipes_path
     end
   end
 
