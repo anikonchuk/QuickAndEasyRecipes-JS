@@ -3,8 +3,9 @@ class RecipesController < ApplicationController
   before_action :require_login
 
   def index
-    if params[:user_id] && current_user.id == params[:user_id]
-      @user = User.find_by(id: params[:user_id])
+    if params[:user_id] && current_user.id == params[:user_id].to_i
+      @user = current_user
+      @recipes = @user.recipes
     elsif params[:user_id]
       flash[:alert] = "You are not authorized to view this user's page."
       redirect_to recipes_path
