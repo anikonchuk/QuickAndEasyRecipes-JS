@@ -14,7 +14,6 @@
       <div>
         <%= link_to "All Recipes", recipes_path %>
         <%= link_to "#{current_user.email}'s Recipes", user_recipes_path(current_user) %>
-        <%= link_to "All Users", users_path %>
         <%= link_to "Recipes by Ingredient", ingredients_path %>
         <%= link_to "Create a New Recipe", new_user_recipe_path(current_user) %>
         <%= form_tag "/logout" do %>
