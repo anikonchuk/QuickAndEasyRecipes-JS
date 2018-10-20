@@ -15,15 +15,16 @@ class RecipesController < ApplicationController
   end
 
   def new
-    @user = User.find_by(id: params[:user_id])
-    if !User.exists?(params[:user_id])
-      redirect_to recipes_path, flash[:alert] = "User not found."
-    else
+    if current_user.id == params[:user_id].to_i
+      @user = current_user
       @recipe = Recipe.new(user_id: params[:user_id])
       10.times do
         quantity = @recipe.quantities.build
         quantity.build_ingredient
       end
+    else
+      flash[:alert] = "You are not authorized to create a recipe for another user."
+      redirect_to recipes_path
     end
   end
 
