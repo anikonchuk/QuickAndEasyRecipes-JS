@@ -15,13 +15,28 @@ class Recipe < ApplicationRecord
     self.ingredients.count
   end
 
-  def ingredients_attributes=(ingredients_attributes)
+  def quantities_attributes=(quantities_attributes)
     self.quantities.destroy_all
-    ingredients_attributes.each do |ingredients_attribute|
-      if ingredients_attribute[1]["name"] != ""
-        ingredient = Ingredient.find_or_create_by(name: ingredients_attribute[1]["name"])
-        self.quantities.build(ingredient: ingredient, amount: ingredients_attribute[1]["quantities"]["amount"])
+    quantities_attributes.each do |key, value|
+      if value["ingredient_attributes"]["name"] != ""
+        ingredient = Ingredient.find_or_create_by(name: value["ingredient_attributes"]["name"])
+        self.quantities.build(ingredient: ingredient, amount: value["amount"])
       end
     end
   end
 end
+
+#if quantities_attribute[1]["name"] != ""
+#  ingredient = Ingredient.find_or_create_by(name: ingredients_attribute[1]["name"])
+#  self.quantities.build(ingredient: ingredient, amount: ingredients_attribute[1]["quantities"]["amount"])
+#end
+#=> {"0"=>{"amount"=>"2 slices", "ingredient_attributes"=>{"name"=>"Bread"}},
+# "1"=>{"amount"=>"2 slices", "ingredient_attributes"=>{"name"=>"Ham"}},
+## "2"=>{"amount"=>"1 slice", "ingredient_attributes"=>{"name"=>"Cheddar Cheese"}},
+# "3"=>{"amount"=>"1 tbsp", "ingredient_attributes"=>{"name"=>"Mayonnaise"}},
+# "4"=>{"amount"=>"", "ingredient_attributes"=>{"name"=>""}},
+# "5"=>{"amount"=>"", "ingredient_attributes"=>{"name"=>""}},
+# "6"=>{"amount"=>"", "ingredient_attributes"=>{"name"=>""}},
+# "7"=>{"amount"=>"", "ingredient_attributes"=>{"name"=>""}},
+# "8"=>{"amount"=>"", "ingredient_attributes"=>{"name"=>""}},
+# "9"=>{"amount"=>"", "ingredient_attributes"=>{"name"=>""}}}
