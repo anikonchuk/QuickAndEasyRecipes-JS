@@ -48,8 +48,8 @@ class RecipesController < ApplicationController
 
   def edit
     if current_user.id == params[:user_id].to_i
-      @recipe = @user.recipes.find_by(id: params[:id])
       @user = current_user
+      @recipe = @user.recipes.find_by(id: params[:id])
       if @recipe.nil?
         flash[:alert] = "Recipe not found in your collection."
         redirect_to user_recipes_path(@user)
