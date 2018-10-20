@@ -14,6 +14,7 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to recipes_path
       else
+        flash[:alert] = "Something went wrong. Please try again."
         render :new
       end
     end

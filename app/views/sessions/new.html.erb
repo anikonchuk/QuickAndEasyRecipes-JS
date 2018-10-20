@@ -1,5 +1,7 @@
 <h1>Sign In Below</h1>
 
+<%= render 'recipes/flash_alert' %>
+
 <%= form_tag login_path do %>
   <label>Email:</label><br>
   <%= text_field_tag :'email' %><br>
