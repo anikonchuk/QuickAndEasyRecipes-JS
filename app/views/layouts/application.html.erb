@@ -12,15 +12,21 @@
 
   <body>
     <% if logged_in? %>
-      <div class="container">
-        <nav>
-          <%= link_to "All Recipes", recipes_path %>
-          <%= link_to "Your Recipes", user_recipes_path(current_user) %>
-          <%= link_to "Recipes by Ingredient", ingredients_path %>
-          <%= link_to "New Recipe", new_user_recipe_path(current_user) %>
-          <%= link_to "Logout", logout_path %>
-        </nav>
-      </div>
+      <nav class="navbar navbar-default">
+        <div class="container-fluid">
+
+          <div>
+            <ul class="nav navbar-nav">
+              <li><%= link_to "All Recipes", recipes_path %></li>
+              <li><%= link_to "Your Recipes", user_recipes_path(current_user) %></li>
+              <li><%= link_to "Recipes by Ingredient", ingredients_path %></li>
+              <li><%= link_to "New Recipe", new_user_recipe_path(current_user) %></li>
+              <li><%= link_to "Logout", logout_path %></li>
+            </ul>
+          </div>
+
+        </div>
+      </nav>
     <% end %>
     <div class="container">
       <%= yield %>
