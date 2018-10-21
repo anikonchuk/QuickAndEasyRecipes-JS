@@ -1,6 +1,6 @@
 <% if object.errors.any? %>
-  <div id ="error_explanation">
-    <h2>There were some errors.</h2>
+  <div id="error_explanation" class="alert alert-danger" role="alert">
+    <h4>There were some errors.</h4>
     <ul>
       <% object.errors.full_messages.each do |message| %>
         <li><%= message %></li>
