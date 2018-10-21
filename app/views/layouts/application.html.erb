@@ -13,13 +13,15 @@
   <body>
     <% if logged_in? %>
       <div class="container">
-        <%= link_to "All Recipes", recipes_path %>
-        <%= link_to "#{current_user.email}'s Recipes", user_recipes_path(current_user) %>
-        <%= link_to "Recipes by Ingredient", ingredients_path %>
-        <%= link_to "Create a New Recipe", new_user_recipe_path(current_user) %>
-        <%= form_tag "/logout" do %>
-          <input type="submit" value="Logout" class="btn btn-primary">
-        <% end %>
+        <div class="container">
+          <%= link_to "All Recipes", recipes_path %>
+          <%= link_to "Your Recipes", user_recipes_path(current_user) %>
+          <%= link_to "Recipes by Ingredient", ingredients_path %>
+          <%= link_to "New Recipe", new_user_recipe_path(current_user) %>
+          <%= form_tag "/logout" do %>
+            <input type="submit" value="Logout" class="btn btn-primary">
+          <% end %>
+        </div>
       </div>
     <% end %>
     <div class="container">
