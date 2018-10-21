@@ -1,10 +1,10 @@
 <%= form_for [user, recipe] do |f| %>
   <%= f.hidden_field :user_id %>
-  <strong><%= f.label :name %></strong><br>
+  <%= f.label :name %><br>
   <%= f.text_field :name %><br>
-  <strong><%= f.label :time %></strong><br>
+  <%= f.label :time %><br>
   <%= f.number_field :time %> minutes <br>
-  <strong><%= f.label :ingredients %></strong><br>
+  <%= f.label :ingredients %><br>
   <%= f.fields_for :quantities do |q| %>
     <%= q.label :amount %>
     <%= q.text_field :amount %>
@@ -13,7 +13,7 @@
       <%= i.text_field :name %><br>
     <% end %>
   <% end %>
-  <strong><%= f.label :instructions %></strong><br>
+  <%= f.label :instructions %><br>
   <%= f.text_area :instructions %><br>
   <%= f.submit %>
 <% end %>
