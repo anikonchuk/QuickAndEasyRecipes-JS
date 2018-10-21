@@ -11,8 +11,8 @@
 <p><%= @recipe.instructions %></p>
 <br>
 <% if current_user == @recipe.user %>
-  <%= link_to "Edit this recipe", edit_user_recipe_path(@recipe.user, @recipe) %><br>
+  <%= link_to "Edit #{@recipe.name}", edit_user_recipe_path(@recipe.user, @recipe) %><br>
   <%= form_tag recipe_path(@recipe), method: "delete" do %>
-    <%= submit_tag "Delete #{@recipe.name}" %>
+    <%= submit_tag "Delete #{@recipe.name}", :class => 'btn btn-danger' %>
   <% end %>
 <% end %>
