@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
-  post '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy'
   get '/recipes/shortest' => 'recipes#shortest'
   get '/recipes/name' => 'recipes#name'
   get '/recipes/recent' => 'recipes#recent'

@@ -13,15 +13,13 @@
   <body>
     <% if logged_in? %>
       <div class="container">
-        <div class="container">
+        <nav>
           <%= link_to "All Recipes", recipes_path %>
           <%= link_to "Your Recipes", user_recipes_path(current_user) %>
           <%= link_to "Recipes by Ingredient", ingredients_path %>
           <%= link_to "New Recipe", new_user_recipe_path(current_user) %>
-          <%= form_tag "/logout" do %>
-            <input type="submit" value="Logout" class="btn btn-primary">
-          <% end %>
-        </div>
+          <%= link_to "Logout", logout_path %>
+        </nav>
       </div>
     <% end %>
     <div class="container">
