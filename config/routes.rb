@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   get '/auth/github/callback' => 'sessions#create'
 
   resources :users, only: [:new, :create] do
-    resources :recipes, only: [:index, :new, :create, :edit, :update]
+    resources :recipes, except: [:show, :destroy]
   end
   resources :recipes, except: [:new, :create, :edit, :update]
   resources :ingredients, only: [:index, :show]
