@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create] do
     resources :recipes, except: [:show, :destroy]
   end
-  resources :recipes, except: [:new, :create, :edit, :update]
+  resources :recipes, only: [:index, :show, :destroy]
   resources :ingredients, only: [:index, :show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
