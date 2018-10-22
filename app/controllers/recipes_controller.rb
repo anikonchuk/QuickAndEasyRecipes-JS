@@ -98,6 +98,11 @@ class RecipesController < ApplicationController
     @recipes = Recipe.by_recently_added
   end
 
+  def fewest_ingredients
+    @recipes = Recipe.by_fewest_ingredients
+  end
+
+
   private
 
   def recipe_params
