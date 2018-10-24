@@ -9,7 +9,7 @@
       <tr>
         <td><%= link_to recipe.name, recipe_path(recipe) %></td>
         <td><%= recipe.time %> minutes</td>
-        <td><%= recipe.ingredient_count %> ingredients</td>
+        <td><%= plural_ingredients recipe %></td>
       </tr>
     <% end %>
   </tbody>
