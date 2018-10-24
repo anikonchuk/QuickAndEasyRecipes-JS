@@ -102,6 +102,10 @@ class RecipesController < ApplicationController
     @recipes = Recipe.by_fewest_ingredients
   end
 
+  def recently_updated
+    @recipes = Recipe.by_most_recently_updated
+  end
+
 
   private
 

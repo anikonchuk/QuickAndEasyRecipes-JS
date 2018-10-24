@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/recipes/name' => 'recipes#name'
   get '/recipes/recent' => 'recipes#recent'
   get '/recipes/fewest_ingredients' => 'recipes#fewest_ingredients'
+  get '/recipes/by_most_recently_updated' => 'recipes#recently_updated'
   get '/auth/github/callback' => 'sessions#create'
 
   resources :users, only: [:new, :create] do
