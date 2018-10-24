@@ -10,7 +10,12 @@
     <%= q.text_field :amount %>
     <%= q.fields_for :ingredient do |i| %>
       <%= i.label :name %>
-      <%= i.text_field :name %><br>
+      <%= i.text_field :name, list: "ingredients_autocomplete" %><br>
+        <datalist id="ingredients_autocomplete">
+          <% Ingredient.by_name.each do |ingredient| %>
+            <option value="<%= ingredient.name %>">
+          <% end %>
+        </datalist>
     <% end %>
   <% end %>
   <%= f.label :instructions %><br>
