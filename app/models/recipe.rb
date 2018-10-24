@@ -9,6 +9,7 @@ class Recipe < ApplicationRecord
   scope :by_name, -> { order(name: :asc) }
   scope :by_shortest_time, -> { order(time: :asc) }
   scope :by_fewest_ingredients, -> { joins(:quantities).group(:recipe_id).order('COUNT(ingredient_id) ASC') }
+  scope :by_most_recently_updated, -> { order(updated_at: :desc) }
 
   accepts_nested_attributes_for :quantities
 
