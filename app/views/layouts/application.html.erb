@@ -14,10 +14,10 @@
         <div class="container-fluid">
           <div>
             <ul class="nav navbar-nav">
-              <li><%= link_to "All Recipes", recipes_path %></li>
-              <li><%= link_to "Your Recipes", user_recipes_path(current_user) %></li>
-              <li><%= link_to "Recipes by Ingredient", ingredients_path %></li>
-              <li><%= link_to "New Recipe", new_user_recipe_path(current_user) %></li>
+              <li><%= link_to "All Recipes", recipes_path, :id => "all-recipes-link" %></li>
+              <li><%= link_to "Your Recipes", user_recipes_path(current_user), :id => "user-recipes-link" %></li>
+              <li><%= link_to "Recipes by Ingredient", ingredients_path, :id => "ingredients-link" %></li>
+              <li><%= link_to "New Recipe", new_user_recipe_path(current_user), :id => "new-recipe-link" %></li>
               <li><%= link_to "Logout", logout_path %></li>
             </ul>
           </div>
