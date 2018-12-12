@@ -41,7 +41,7 @@ function addListenerToRecipeName() {
   for(let i = 0; i < recipeNames.length; i++) {
     recipeNames[i].addEventListener('click', function(e){
       e.preventDefault();
-      console.log("clicked");
+      fetchIndividualRecipe();
     });
   };
 }
