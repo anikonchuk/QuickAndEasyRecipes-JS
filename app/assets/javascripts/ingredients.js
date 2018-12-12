@@ -9,3 +9,7 @@ function addListenerToIngredientsLink() {
     e.preventDefault();
   });
 }
+
+function addListenerToIngredientNameLink() {
+  const ingredientLinks = document.getElementsByClassName("individual-ingredient-links");
+}
