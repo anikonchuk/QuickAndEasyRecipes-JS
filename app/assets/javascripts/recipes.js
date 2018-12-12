@@ -2,7 +2,6 @@ $(function() {
   console.log("JS is working");
   addListenerToAllRecipesLink();
   addListenerToUserRecipesLink();
-  addListenerToIngredientsLink();
   addListenerToNewRecipeLink();
 })
 
@@ -32,14 +31,7 @@ function addListenerToUserRecipesLink() {
   });
 }
 
-//Move this to ingredients js file?
-function addListenerToIngredientsLink() {
-  const ingredientsLink = document.getElementById("ingredients-link");
-  ingredientsLink.addEventListener('click', function(e){
-    e.preventDefault();
-    console.log("ingredients link is working");
-  });
-}
+
 
 function addListenerToNewRecipeLink() {
   const newRecipeLink = document.getElementById("new-recipe-link");
