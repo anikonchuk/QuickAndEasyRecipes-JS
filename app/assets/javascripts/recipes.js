@@ -32,7 +32,18 @@ function fetchAllRecipeData() {
     });
     htmlResponse += `</tbody></table>`
     document.getElementById("landing-content").innerHTML = htmlResponse;
+    addListenerToRecipeName();
   });
+}
+
+function addListenerToRecipeName() {
+  const recipeNames = document.getElementsByClassName("recipe-name");
+  for(let i = 0; i < recipeNames.length; i++) {
+    recipeNames[i].addEventListener('click', function(e){
+      e.preventDefault();
+      console.log("clicked");
+    });
+  };
 }
 
 function addListenerToUserRecipesLink() {
