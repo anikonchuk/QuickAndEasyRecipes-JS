@@ -15,7 +15,7 @@ class Recipe {
 }
 
 Recipe.prototype.createRecipeDisplay = function() {
-  let customHTML = `<h2>${this.name}`;
+  let customHTML = `<h2>${this.name}</h2>`;
   customHTML += `<p><strong>Time Required:</strong> ${this.time} minutes</p><ul>`;
   for (let i = 0; i < this.quantities.length; i ++) {
     customHTML += `<li>${this.quantities[i].amount} ${this.ingredients[i].name} </li>`
