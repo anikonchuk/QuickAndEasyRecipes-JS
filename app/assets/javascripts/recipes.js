@@ -18,7 +18,7 @@ Recipe.prototype.createRecipeDisplay = function() {
   let customHTML = `<h2>${this.name}</h2>`;
   customHTML += `<p><strong>Time Required:</strong> ${this.time} minutes</p><ul>`;
   for (let i = 0; i < this.quantities.length; i ++) {
-    customHTML += `<li>${this.quantities[i].amount} <a href="/ingredients/${this.ingredient.id}" class="individual-ingredient-links">${this.ingredients[i].name}</a></li>`
+    customHTML += `<li>${this.quantities[i].amount} <a href="/ingredients/${this.ingredients[i].id}" class="individual-ingredient-links">${this.ingredients[i].name}</a></li>`
   }
   customHTML += `</ul><p>${this.instructions}</p>`;
   return customHTML;
