@@ -19,7 +19,6 @@ function addListenerToAllRecipesLink () {
   allRecipesLink.addEventListener('click', function(e){
     e.preventDefault();
     fetchAllRecipeData();
-    })
   });
 }
 
@@ -33,6 +32,7 @@ function fetchAllRecipeData() {
     });
     htmlResponse += `</tbody></table>`
     document.getElementById("landing-content").innerHTML = htmlResponse;
+  });
 }
 
 function addListenerToUserRecipesLink() {
