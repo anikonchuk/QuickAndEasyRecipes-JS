@@ -56,7 +56,7 @@ class RecipesController < ApplicationController
   def show
     @recipe = Recipe.find_by(id: params[:id])
     respond_to do |f|
-      f.html {render :index}
+      f.html {render :show}
       f.json {render json: @recipe}
     end
   end

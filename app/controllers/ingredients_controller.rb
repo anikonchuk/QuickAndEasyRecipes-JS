@@ -4,6 +4,10 @@ class IngredientsController < ApplicationController
 
   def index
     @ingredients = Ingredient.by_name
+    respond_to do |f|
+      f.html {render :index}
+      f.json {render json: @ingredients}
+    end
   end
 
   def show
