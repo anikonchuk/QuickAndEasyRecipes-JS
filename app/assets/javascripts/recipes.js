@@ -28,7 +28,7 @@ function fetchAllRecipeData() {
   .then(function(resp){
     let htmlResponse = `<h2>All Recipes</h2><table><thead><th>Recipe Name</th><th>Time</th></thead><tbody>`;
     resp.forEach(function(recipe){
-      htmlResponse += `<tr><td>${recipe.name}</td><td>${recipe.time}</td></tr>`;
+      htmlResponse += `<tr><td><a href="#" class="recipe-name" data-id="${recipe.id}">${recipe.name}</a></td><td>${recipe.time}</td></tr>`;
     });
     htmlResponse += `</tbody></table>`
     document.getElementById("landing-content").innerHTML = htmlResponse;
