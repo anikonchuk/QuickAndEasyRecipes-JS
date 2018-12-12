@@ -6,11 +6,19 @@ class RecipesController < ApplicationController
     if params[:user_id] && current_user.id == params[:user_id].to_i
       @user = current_user
       @recipes = @user.recipes
+      respond_to do |f|
+        f.html {render :index}
+        f.json {render json: @recipes}
+      end
     elsif params[:user_id]
       flash[:alert] = "You are not authorized to view this user's page."
       redirect_to recipes_path
     else
       @recipes = Recipe.all
+      respond_to do |f|
+        f.html {render :index}
+        f.json {render json: @recipes}
+      end
     end
   end
 
