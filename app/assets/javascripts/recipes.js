@@ -3,6 +3,7 @@ $(function() {
   addListenerToAllRecipesLink();
   addListenerToUserRecipesLink();
   addListenerToIngredientsLink();
+  addListenerToNewRecipeLink();
 })
 
 function addListenerToAllRecipesLink () {
@@ -27,5 +28,13 @@ function addListenerToIngredientsLink() {
   ingredientsLink.addEventListener('click', function(e){
     e.preventDefault();
     console.log("ingredients link is working");
-  })
+  });
+}
+
+function addListenerToNewRecipeLink() {
+  const newRecipeLink = document.getElementById("new-recipe-link");
+  newRecipeLink.addEventListener('click', function(e){
+    e.preventDefault();
+    console.log("new recipe link is working");
+  });
 }
