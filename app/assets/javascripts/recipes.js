@@ -28,7 +28,7 @@ function fetchAllRecipeData() {
   .then(function(resp){
     let htmlResponse = `<h2>All Recipes</h2><table><thead><th>Recipe Name</th><th>Time</th></thead><tbody>`;
     resp.forEach(function(recipe){
-      htmlResponse += `<tr><td><a href="#" class="recipe-name" data-id="${recipe.id}">${recipe.name}</a></td><td>${recipe.time} minutes</td></tr>`;
+      htmlResponse += `<tr><td><a href="/recipes/${recipe.id}" class="recipe-name">${recipe.name}</a></td><td>${recipe.time} minutes</td></tr>`;
     });
     htmlResponse += `</tbody></table>`
     document.getElementById("landing-content").innerHTML = htmlResponse;
@@ -41,9 +41,14 @@ function addListenerToRecipeName() {
   for(let i = 0; i < recipeNames.length; i++) {
     recipeNames[i].addEventListener('click', function(e){
       e.preventDefault();
-      fetchIndividualRecipe();
+      const url = this.attributes.href.textContent;
+      fetchIndividualRecipe(url);
     });
   };
+}
+
+function fetchIndividualRecipe(url) {
+  debugger
 }
 
 function addListenerToUserRecipesLink() {
