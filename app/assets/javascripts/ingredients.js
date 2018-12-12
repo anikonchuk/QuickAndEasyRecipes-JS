@@ -58,7 +58,7 @@ function fetchIndividualIngredient(url) {
   .then(function(resp){
     const myIngredient = new Ingredient(resp);
     document.getElementById("landing-content").innerHTML = myIngredient.createIngredientDisplay();
-    addListenerToRecipeNames();
+    addListenerToRecipeName();
     //This function is in recipes.js
   })
 }
