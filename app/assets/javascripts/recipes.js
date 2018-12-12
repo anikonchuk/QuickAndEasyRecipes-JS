@@ -18,7 +18,7 @@ Recipe.prototype.createRecipeDisplay = function() {
   let customHTML = `<h2>${this.name}</h2>`;
   customHTML += `<p><strong>Time Required:</strong> ${this.time} minutes</p><ul>`;
   for (let i = 0; i < this.quantities.length; i ++) {
-    customHTML += `<li>${this.quantities[i].amount} ${this.ingredients[i].name} </li>`
+    customHTML += `<li>${this.quantities[i].amount} <a href="/ingredients/${this.ingredient.id}">${this.ingredients[i].name}</a></li>`
   }
   customHTML += `</ul><p>${this.instructions}</p>`;
   return customHTML;
@@ -63,6 +63,8 @@ function fetchIndividualRecipe(url) {
   .then(function(resp){
     const myRecipe = new Recipe(resp);
     document.getElementById("landing-content").innerHTML = myRecipe.createRecipeDisplay();
+    addListenerToIngredientNameLink();
+    //This function is in ingredients.js
   })
 }
 
