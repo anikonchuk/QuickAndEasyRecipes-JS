@@ -6,6 +6,16 @@ $(function() {
   addListenerToNewRecipeLink();
 })
 
+class Recipe {
+  constructor(attr) {
+    this.name = attr.name
+    this.time = attr.time
+    this.ingredients = attr.ingredients
+    this.quantities = attr.quantities
+    this.instructions = attr.instructions
+  }
+}
+
 function addListenerToAllRecipesLink () {
   const allRecipesLink = document.getElementById("all-recipes-link");
   allRecipesLink.addEventListener('click', function(e){
