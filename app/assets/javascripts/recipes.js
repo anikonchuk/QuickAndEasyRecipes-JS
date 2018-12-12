@@ -48,7 +48,12 @@ function addListenerToRecipeName() {
 }
 
 function fetchIndividualRecipe(url) {
-  debugger
+  fetch(url)
+  .then(res => res.json())
+  .then(function(resp){
+    const myRecipe = new Recipe(resp);
+    debugger
+  })
 }
 
 function addListenerToUserRecipesLink() {
