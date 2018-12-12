@@ -2,6 +2,13 @@ $(function(){
   addListenerToIngredientsLink();
 })
 
+class Ingredient{
+  constructor(attr) {
+    this.name = attr.name
+    this.recipes = attr.recipes
+  }
+}
+
 
 function addListenerToIngredientsLink() {
   const ingredientsLink = document.getElementById("ingredients-link");
