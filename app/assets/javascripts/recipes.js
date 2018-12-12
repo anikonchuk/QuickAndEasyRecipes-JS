@@ -70,6 +70,7 @@ function addListenerToUserRecipesLink() {
   const userRecipesLink = document.getElementById("user-recipes-link");
   userRecipesLink.addEventListener('click', function(e){
     e.preventDefault();
+    const url = this.attributes.href.textContent;
   });
 }
 
