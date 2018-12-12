@@ -44,5 +44,12 @@ function addListenerToIngredientNameLink() {
 }
 
 function fetchIndividualIngredient(url) {
-  console.log("I was clicked")
+  fetch(url + ".json")
+  .then(res => res.json())
+  .then(function(resp){
+    const myIngredient = new Ingredient(resp);
+    document.getElementById("landing-content").innerHTML = myIngredient.createIngredientDisplay();
+    addListenerToRecipeNames();
+    //This function is in recipes.js
+  })
 }
