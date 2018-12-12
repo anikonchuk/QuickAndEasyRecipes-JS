@@ -48,7 +48,7 @@ function addListenerToRecipeName() {
 }
 
 function fetchIndividualRecipe(url) {
-  fetch(url)
+  fetch(url + ".json")
   .then(res => res.json())
   .then(function(resp){
     const myRecipe = new Recipe(resp);
