@@ -14,6 +14,16 @@ class Recipe {
   }
 }
 
+Recipe.prototype.createRecipeDisplay = function() {
+  let customHTML = `<h2>${this.name}`;
+  customHTML += `<p><strong>Time Required:</strong> ${this.time} minutes</p><ul>`;
+  for (let i = 0; i < this.quantities.length; i ++) {
+    customHTML += `<li>${this.quantities[i].amount} ${this.ingredients[i].name} </li>`
+  }
+  customHTML += `</ul><p>${this.instructions}</p>`;
+  return customHTML;
+}
+
 function addListenerToAllRecipesLink () {
   const allRecipesLink = document.getElementById("all-recipes-link");
   allRecipesLink.addEventListener('click', function(e){
@@ -52,7 +62,7 @@ function fetchIndividualRecipe(url) {
   .then(res => res.json())
   .then(function(resp){
     const myRecipe = new Recipe(resp);
-    debugger
+    document.getElementById("landing-content").innerHTML = myRecipe.createRecipeDisplay();
   })
 }
 
