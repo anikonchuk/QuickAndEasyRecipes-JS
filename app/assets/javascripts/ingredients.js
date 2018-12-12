@@ -9,6 +9,15 @@ class Ingredient{
   }
 }
 
+Ingredient.prototype.createIngredientDisplay = function() {
+  let customHTML = `<h2>${this.name}</h2>`;
+  customHTML += `<p><em>This ingredient is used in the following recipes:</em></p><ul>`;
+  for (let i = 0; i < this.recipes.length; i ++) {
+    customHTML += `<li><a href="/recipes/${this.recipes[i].id}" class="recipe-name">${this.recipes[i].name}</a></li>`
+  }
+  customHTML += `</ul>`;
+  return customHTML;
+}
 
 function addListenerToIngredientsLink() {
   const ingredientsLink = document.getElementById("ingredients-link");
