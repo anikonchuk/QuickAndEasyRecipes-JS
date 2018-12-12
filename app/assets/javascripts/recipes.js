@@ -1,6 +1,7 @@
 $(function() {
   console.log("JS is working");
   addListenerToAllRecipesLink();
+  addListenerToUserRecipesLink();
 })
 
 function addListenerToAllRecipesLink () {
@@ -8,5 +9,13 @@ function addListenerToAllRecipesLink () {
   allRecipesLink.addEventListener('click', function(e){
     e.preventDefault();
     console.log("All Recipes Link is Working");
+  });
+}
+
+function addListenerToUserRecipesLink() {
+  const userRecipesLink = document.getElementById("user-recipes-link");
+  userRecipesLink.addEventListener('click', function(e){
+    e.preventDefault();
+    console.log("User Recipes Link is working");
   });
 }
