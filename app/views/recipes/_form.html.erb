@@ -1,4 +1,6 @@
-<%= form_for [user, recipe] do |f| %>
+<h2>Create a New Recipe</h2>
+
+<%= form_for [@user, @recipe] do |f| %>
   <%= f.hidden_field :user_id %>
   <%= f.label :name %><br>
   <%= f.text_field :name %><br>
