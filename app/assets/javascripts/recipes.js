@@ -118,24 +118,15 @@ function addListenerToForm() {
 }
 
 function postDataFromForm(url, data) {
-  fetch(url, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
+  $.ajax({
+    type: "POST",
+    url: url,
+    data: data,
+    success: function(res) {
+      console.log(res)
     },
-    body: data
-  })
-  .then(function(res){
-    if (res.ok) {
-      return res
+    error: function(res) {
+      console.log("fail:" + res)
     }
-    return throwError(res)
-  })
-  .then(res => res.json())
-  .then(function(data) {
-    console.log(data)
-  })
-  .catch(function(res) {
-    console.log (res.full_message)
   })
 }
