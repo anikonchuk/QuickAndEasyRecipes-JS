@@ -32,7 +32,7 @@ class RecipesController < ApplicationController
       quantity = @recipe.quantities.build
       quantity.build_ingredient
     end
-    render 'recipes/form', :layout => false
+    render :partial => 'recipes/form', :layout => false
   end
   # def new
   #   if current_user.id == params[:user_id].to_i
