@@ -96,11 +96,11 @@ function addListenerToNewRecipeLink() {
   newRecipeLink.addEventListener('click', function(e){
     e.preventDefault();
     const address = this.attributes.href.textContent;
-    fetchFormPartial(address);
+    getFormPartial(address);
   });
 }
 
-function fetchFormPartial(address) {
+function getFormPartial(address) {
   $.get(address).done(function(resp){
     $("#landing-content").html(resp);
     addListenerToForm();
