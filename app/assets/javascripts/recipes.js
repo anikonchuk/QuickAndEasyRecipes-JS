@@ -122,8 +122,10 @@ function postDataFromForm(url, data) {
     type: "POST",
     url: url,
     data: data,
-    success: function(res) {
-      console.log(res)
+    success: function(response) {
+      const myRecipe = new Recipe(response);
+      document.getElementById("landing-content").innerHTML = myRecipe.createRecipeDisplay();
+      addListenerToIngredientNameLink();
     },
     error: function(res) {
       console.log("fail:" + res)
