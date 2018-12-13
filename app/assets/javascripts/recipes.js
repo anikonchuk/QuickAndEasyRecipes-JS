@@ -95,5 +95,19 @@ function addListenerToNewRecipeLink() {
   const newRecipeLink = document.getElementById("new-recipe-link");
   newRecipeLink.addEventListener('click', function(e){
     e.preventDefault();
+    const url = this.href;
+    fetchFormPartial(url);
   });
+}
+
+function fetchFormPartial(url) {
+  fetch(url)
+  .then(function(resp) {
+    document.getElementById("landing-content").innerHTML = resp;
+    addListenerToForm();
+  })
+}
+
+function addListenerToForm() {
+
 }
