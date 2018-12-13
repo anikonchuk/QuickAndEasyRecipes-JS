@@ -90,7 +90,8 @@ function fetchUserRecipeData(url) {
   .then(resp => {
     let htmlResponse = `<h2>Your Recipes</h2><table><thead><th>Recipe Name</th><th>Time</th><th>Ingredients</th></thead><tbody>`;
     resp.forEach(recipe => {
-      htmlResponse += `<tr><td><a href="/recipes/${recipe.id}" class="recipe-name">${recipe.name}</a></td><td>${recipe.time} minutes</td><td>${recipe.ingredients.length} ingredients</td></tr>`;
+      let newRecipe = new Recipe(recipe);
+      htmlResponse += newRecipe.createRecipeTableRow();
     });
     htmlResponse += `</tbody></table>`
     document.getElementById("landing-content").innerHTML = htmlResponse;
