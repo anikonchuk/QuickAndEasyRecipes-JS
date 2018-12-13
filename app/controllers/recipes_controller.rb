@@ -52,13 +52,13 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
     @user = User.find_by(id: params[:user_id])
     if @recipe.save
-      redirect_to recipe_path(@recipe)
+      render json: @post, status: 201
     else
       10.times do
         quantity = @recipe.quantities.build
         quantity.build_ingredient
       end
-      render 'new'
+      render json: @post, status: 406
     end
   end
 
