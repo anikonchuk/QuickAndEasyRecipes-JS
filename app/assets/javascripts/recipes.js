@@ -127,8 +127,9 @@ function postDataFromForm(url, data) {
       document.getElementById("landing-content").innerHTML = myRecipe.createRecipeDisplay();
       addListenerToIngredientNameLink();
     },
-    error: function(res) {
-      console.log("fail:" + res)
+    error: function(response) {
+      const customMessage = "<h4>Your recipe must have a name, time, ingredients, and instructions</h4>"
+      document.getElementById("landing-content").innerHTML = customMessage;
     }
   })
 }
