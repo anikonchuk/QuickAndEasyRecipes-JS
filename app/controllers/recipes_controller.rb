@@ -26,18 +26,27 @@ class RecipesController < ApplicationController
   end
 
   def new
-    if current_user.id == params[:user_id].to_i
-      @user = current_user
-      @recipe = Recipe.new(user_id: params[:user_id])
-      10.times do
-        quantity = @recipe.quantities.build
-        quantity.build_ingredient
-      end
-    else
-      flash[:alert] = "You are not authorized to create a recipe for another user."
-      redirect_to recipes_path
+    @user = current_user
+    @recipe = Recipe.new(user_id: params[:user_id])
+    10.times do
+      quantity = @recipe.quantities.build
+      quantity.build_ingredient
     end
+    render 'recipes/form', :layout => false
   end
+  # def new
+  #   if current_user.id == params[:user_id].to_i
+  #     @user = current_user
+  #     @recipe = Recipe.new(user_id: params[:user_id])
+  #     10.times do
+  #       quantity = @recipe.quantities.build
+  #       quantity.build_ingredient
+  #     end
+  #   else
+  #     flash[:alert] = "You are not authorized to create a recipe for another user."
+  #     redirect_to recipes_path
+  #   end
+  # end
 
   def create
     @recipe = Recipe.new(recipe_params)

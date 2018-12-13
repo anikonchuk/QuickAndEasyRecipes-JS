@@ -103,6 +103,7 @@ function addListenerToNewRecipeLink() {
 function fetchFormPartial(url) {
   fetch(url)
   .then(function(resp) {
+    debugger
     document.getElementById("landing-content").innerHTML = resp;
     addListenerToForm();
   })
