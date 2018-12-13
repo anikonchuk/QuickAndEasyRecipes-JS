@@ -95,16 +95,14 @@ function addListenerToNewRecipeLink() {
   const newRecipeLink = document.getElementById("new-recipe-link");
   newRecipeLink.addEventListener('click', function(e){
     e.preventDefault();
-    const url = this.href;
-    fetchFormPartial(url);
+    const address = this.attributes.href.textContent;
+    fetchFormPartial(address);
   });
 }
 
-function fetchFormPartial(url) {
-  fetch(url)
-  .then(function(resp) {
-    debugger
-    document.getElementById("landing-content").innerHTML = resp;
+function fetchFormPartial(address) {
+  $.get(address).done(function(resp){
+    $("#landing-content").html(resp);
     addListenerToForm();
   })
 }
