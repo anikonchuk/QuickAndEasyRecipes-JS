@@ -6,6 +6,7 @@ $(function() {
 
 class Recipe {
   constructor(attr) {
+    this.id = attr.id
     this.name = attr.name
     this.time = attr.time
     this.ingredients = attr.ingredients
