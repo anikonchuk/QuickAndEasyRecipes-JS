@@ -108,5 +108,9 @@ function getFormPartial(address) {
 }
 
 function addListenerToForm() {
-
+  const form = document.getElementById("new_recipe")
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    console.log("submitted");
+  })
 }
