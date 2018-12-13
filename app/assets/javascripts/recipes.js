@@ -109,7 +109,7 @@ function addListenerToNewRecipeLink() {
 }
 
 function getFormPartial(address) {
-  $.get(address).done((resp) => {
+  $.get(address).done(resp => {
     $("#landing-content").html(resp);
     addListenerToForm();
   })
@@ -130,12 +130,12 @@ function postDataFromForm(url, data) {
     type: "POST",
     url: url,
     data: data,
-    success: (response) => {
+    success: response => {
       const myRecipe = new Recipe(response);
       document.getElementById("landing-content").innerHTML = myRecipe.createRecipeDisplay();
       addListenerToIngredientNameLink();
     },
-    error: (response) => {
+    error: response => {
       const customMessage = "<h4>Your recipe must have a name, time, ingredients, and instructions</h4>"
       document.getElementById("landing-content").innerHTML = customMessage;
     }
