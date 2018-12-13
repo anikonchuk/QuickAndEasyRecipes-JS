@@ -30,9 +30,9 @@ function addListenerToIngredientsLink() {
 function fetchAllIngredientData() {
   fetch('/ingredients.json')
   .then(res => res.json())
-  .then(function(resp){
+  .then(resp => {
     let htmlResponse = `<h2>All Ingredients</h2><p>Click on an ingredient to see recipes that use it!</p></ul>`;
-    resp.forEach(function(ingredient){
+    resp.forEach(ingredient => {
       htmlResponse += `<li><a href="ingredients/${ingredient.id}" class="individual-ingredient-links">${ingredient.name}</a></li>`;
     });
     htmlResponse += `</ul>`
