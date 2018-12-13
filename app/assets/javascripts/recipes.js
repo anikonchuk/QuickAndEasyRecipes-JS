@@ -111,6 +111,31 @@ function addListenerToForm() {
   const form = document.getElementById("new_recipe")
   form.addEventListener('submit', function(e){
     e.preventDefault();
-    console.log("submitted");
+    const data = $(this).serialize();
+    const url = this.action;
+    postDataFromForm(url, data);
+  })
+}
+
+function postDataFromForm(url, data) {
+  fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: data
+  })
+  .then(function(res){
+    if (res.ok) {
+      return res
+    }
+    return throwError(res)
+  })
+  .then(res => res.json())
+  .then(function(data) {
+    console.log(data)
+  })
+  .catch(function(res) {
+    console.log (res.full_message)
   })
 }
