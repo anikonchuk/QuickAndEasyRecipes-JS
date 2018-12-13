@@ -60,7 +60,7 @@ function addListenerToRecipeName() {
 function fetchIndividualRecipe(url) {
   fetch(url + ".json")
   .then(res => res.json())
-  .then(function(resp){
+  .then(resp => {
     const myRecipe = new Recipe(resp);
     document.getElementById("landing-content").innerHTML = myRecipe.createRecipeDisplay();
     addListenerToIngredientNameLink();
@@ -80,9 +80,9 @@ function addListenerToUserRecipesLink() {
 function fetchUserRecipeData(url) {
   fetch(url + ".json")
   .then(res => res.json())
-  .then(function(resp){
+  .then(resp => {
     let htmlResponse = `<h2>Your Recipes</h2><table><thead><th>Recipe Name</th><th>Time</th><th>Ingredients</th></thead><tbody>`;
-    resp.forEach(function(recipe){
+    resp.forEach(recipe => {
       htmlResponse += `<tr><td><a href="/recipes/${recipe.id}" class="recipe-name">${recipe.name}</a></td><td>${recipe.time} minutes</td><td>${recipe.ingredients.length} ingredients</td></tr>`;
     });
     htmlResponse += `</tbody></table>`
