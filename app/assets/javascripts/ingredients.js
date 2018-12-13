@@ -55,7 +55,7 @@ function addListenerToIngredientNameLink() {
 function fetchIndividualIngredient(url) {
   fetch(url + ".json")
   .then(res => res.json())
-  .then(function(resp){
+  .then(resp => {
     const myIngredient = new Ingredient(resp);
     document.getElementById("landing-content").innerHTML = myIngredient.createIngredientDisplay();
     addListenerToRecipeName();
