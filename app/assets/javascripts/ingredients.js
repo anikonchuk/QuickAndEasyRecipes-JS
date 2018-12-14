@@ -4,6 +4,7 @@ $(function(){
 
 class Ingredient{
   constructor(attr) {
+    this.id = attr.id
     this.name = attr.name
     this.recipes = attr.recipes
   }
@@ -18,6 +19,7 @@ Ingredient.prototype.createIngredientDisplay = function() {
   customHTML += `</ul>`;
   return customHTML;
 }
+
 
 function addListenerToIngredientsLink() {
   const ingredientsLink = document.getElementById("ingredients-link");
