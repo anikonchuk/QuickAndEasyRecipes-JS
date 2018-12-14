@@ -38,7 +38,8 @@ function fetchAllIngredientData() {
   .then(resp => {
     let htmlResponse = `<h2>All Ingredients</h2><p>Click on an ingredient to see recipes that use it!</p></ul>`;
     resp.forEach(ingredient => {
-      htmlResponse += `<li><a href="ingredients/${ingredient.id}" class="individual-ingredient-links">${ingredient.name}</a></li>`;
+      let newIngredient = new Ingredient(ingredient);
+      htmlResponse += newIngredient.createIngredientLI();
     });
     htmlResponse += `</ul>`
     document.getElementById("landing-content").innerHTML = htmlResponse;
