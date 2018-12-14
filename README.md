@@ -1,6 +1,6 @@
 # QuickAndEasyRecipes
 
-Welcome to QuickAndEasyRecipes, a website where you can share, you guessed it, your quickest and easiest recipes! This website was built using Rails.
+Welcome to QuickAndEasyRecipes, a website where you can share, you guessed it, your quickest and easiest recipes! This website was built using Rails, with a JavaScript and jQuery front end. Index and show actions are displayed with AJAX, and the form for a new recipe is submitted dynamically with AJAX.
 
 ## Installation
 
@@ -8,7 +8,7 @@ Download this repository. From the terminal (in the project directory), run ```b
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/anikonchuk/quick-and-easy-recipes. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/anikonchuk/QuickAndEasyRecipes-JS. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](http://contributor-covenant.org) code of conduct.
 
 ## License
 
