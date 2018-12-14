@@ -50,14 +50,14 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    @user = User.find_by(id: params[:user_id])
+    # @user = User.find_by(id: params[:user_id])
     if @recipe.save
       render json: @recipe, status: 201
     else
-      10.times do
-        quantity = @recipe.quantities.build
-        quantity.build_ingredient
-      end
+      # 10.times do
+      #   quantity = @recipe.quantities.build
+      #   quantity.build_ingredient
+      # end
       render json: @recipe, status: 406
     end
   end
