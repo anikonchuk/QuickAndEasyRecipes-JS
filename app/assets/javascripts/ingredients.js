@@ -20,6 +20,9 @@ Ingredient.prototype.createIngredientDisplay = function() {
   return customHTML;
 }
 
+Ingredient.prototype.createIngredientLI = function() {
+  return `<li><a href="ingredients/${this.id}" class="individual-ingredient-links">${this.name}</a></li>`
+}
 
 function addListenerToIngredientsLink() {
   const ingredientsLink = document.getElementById("ingredients-link");
