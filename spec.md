@@ -1,23 +1,22 @@
-# Specifications for the Rails Assessment
+# Specifications for the Rails with JavaScript Front End Assessment
 
 Specs:
-- [x] Using Ruby on Rails for the project
-- [x] Include at least one has_many relationship (x has_many y e.g. User has_many Recipes)- A User has_many Recipes. A Recipe has_many Quantities. An Ingredient has_many Quantities.
-- [x] Include at least one belongs_to relationship (x belongs_to y e.g. Post belongs_to User). A Recipe belongs_to a User. A Quantity belongs_to a Recipe. A Quantity belongs_to an Ingredient.
-- [x] Include at least one has_many through relationship (x has_many y through z e.g. Recipe has_many Items through Ingredients). A Recipe has_many Ingredients through Quantities. An Ingredient has_many Recipes through Quantities.
-- [x] The "through" part of the has_many through includes at least one user submittable attribute (attribute_name e.g. ingredients.quantity). The user-submittable attribute is quantity.amount.
-- [x] Include reasonable validations for simple model objects (list of model objects with validations e.g. User, Recipe, Ingredient, Item)- A User email is validated for presence and uniqueness. A Recipe's name, instructions, and time are validated for presence. A Quantity's amount is validated for presence.
-- [x] Include a class level ActiveRecord scope method (model object & class method name and URL to see the working feature e.g. User.most_recipes URL: /users/most_recipes)- Recipes.by_name URL: /recipes/name, Recipes.by_recently_added URL: /recipes/recent, Recipes.by_shortest_time URL: /recipes/shortest, Recipes.by_fewest_ingredients URL: /recipes/fewest_ingredients 
-- [x] Include signup (how e.g. Devise)- users/new includes a signup route that creates a user through the create action in the UsersController
-- [x] Include login (how e.g. Devise)- The get /login route maps to the new action on the Sessions controller and posts to the create route in the Sessions controller. The user is Authenticated (bcrypt/has_secure_password) and then a session[:user_id] is assigned.
-- [x] Include logout (how e.g. Devise)- a link to get /logout is in the navbar on all pages once logged in. This maps to the sessions#destroy action. A link to the get route was chosen over a post route for aesthetic purposes.
-- [x] Include third party signup/login (how e.g. Devise/OmniAuth)- OmniAuth Github login enabled
-- [x] Include nested resource show or index (URL e.g. users/2/recipes)- A User can view his or her own recipes at the nested Index route /users/:user_id/recipes.
-- [x] Include nested resource "new" form (URL e.g. recipes/1/ingredients/new)- A new recipe can only be created through a nested New route at /users/:user_id/recipes/new.
-- [x] Include form display of validation errors (form URL e.g. /recipes/new)- The users/new form, the recipes/new and recipes/edit forms user form_for and includes a display of validation errors if saving/updating fails.
+- [x] Must have a Rails Backend and new requirements implemented through JavaScript.- I used my Rails project and added the JS features.
+- [x] Makes use of ES6 features as much as possible(e.g Arrow functions, Let & Const, Constructor Functions).- I use "let" and "const" throughout, and wherever possible, I used arrow functions.
+- [x] Must translate the JSON responses into Javascript Model Objects using either ES6 class or constructor syntax.- I created classes for Recipe and Ingredient, and whenever I returned a JSON response with a recipe or ingredient, I translated it into a Model Object.
+- [x] Must render at least one index page (index resource - 'list of things') via JavaScript and an Active Model Serialization JSON Backend.- The All Recipes, All Ingredients, and User Recipe index pages are all rendered with AJAX.
+- [x] Must render at least one show page (show resource - 'one specific thing') via JavaScript and an Active Model Serialization JSON Backend.- The individual recipe and ingredient show pages are rendered via JS/AJAX.
+- [x] Your Rails application must reveal at least one has-many relationship through JSON that is then rendered to the page.- Recipes have many ingredients through quantities, both of which are represented on the recipe show page. Ingredients have many recipes through quantities, and the ingredient show page represents the ingredient's multiple recipes.
+- [x] Must use your Rails application to render a form for creating a resource that is submitted dynamically through JavaScript.- My form partial is rendered via AJAX and is submitted dynamically through AJAX with a JSON response.
+- [x] At least one of the JS Model Objects must have a method on the prototype.- Both models have custom HTML generators for individual items and collections.
 
-Confirm:
-- [x] The application is pretty DRY
-- [x] Limited logic in controllers
-- [x] Views use helper methods if appropriate- I did not find any appropriate uses for helper methods.
-- [x] Views use partials if appropriate- Partials are used for validation errors, flash alerts, the new/edit form for recipes, and the recipe table that is used in the index and scope method views.
+Read Me file contains:
+- [x] Application Description
+- [x] Installation guide (e.g. fork and clone repo, migrate db, bundle install, etc)
+- [x] Contributors guide (e.g. file an issue, file an issue with a pull request, etc)
+- [x] Licensing statement at the bottom (e.g. This project has been licensed under the MIT open source license.)
+
+Repo General:
+- [x] Your commit messages are meaningful
+- [x] You made the changes in a commit that relate to the commit message
+- [x] You don't include changes in a commit that aren't related to the commit message
