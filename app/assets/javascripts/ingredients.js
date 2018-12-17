@@ -36,7 +36,7 @@ function fetchAllIngredientData() {
   fetch('/ingredients.json')
   .then(res => res.json())
   .then(resp => {
-    let htmlResponse = `<h2>All Ingredients</h2><p>Click on an ingredient to see recipes that use it!</p></ul>`;
+    let htmlResponse = `<h2>All Ingredients</h2><p>Click on an ingredient to see recipes that use it!</p><ul>`;
     resp.forEach(ingredient => {
       let newIngredient = new Ingredient(ingredient);
       htmlResponse += newIngredient.createIngredientLI();
