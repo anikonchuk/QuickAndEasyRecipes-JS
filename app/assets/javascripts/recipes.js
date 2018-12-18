@@ -42,7 +42,7 @@ function fetchAllRecipeData() {
   fetch('/recipes.json')
   .then(res => res.json())
   .then(resp => {
-    let htmlResponse = `<h2>All Recipes</h2><table><thead><th>Recipe Name</th><th>Time</th><th>Ingredients</th></thead><tbody>`;
+    let htmlResponse = `<h2>All Recipes</h2><p><button id="sorted-alphabetically">Sort Alphabetically</button></p><table><thead><th>Recipe Name</th><th>Time</th><th>Ingredients</th></thead><tbody>`;
     resp.forEach(recipe => {
       let newRecipe = new Recipe(recipe);
       htmlResponse += newRecipe.createRecipeTableRow();
@@ -50,7 +50,41 @@ function fetchAllRecipeData() {
     htmlResponse += `</tbody></table>`
     document.getElementById("landing-content").innerHTML = htmlResponse;
     addListenerToRecipeName();
+    addListenerToAlphabeticalButton();
   });
+}
+
+function addListenerToAlphabeticalButton() {
+  const button = document.getElementById("sorted-alphabetically");
+  button.addEventListener('click', function(e) {
+    fetchAlphabeticalList();
+  })
+}
+
+function fetchAlphabeticalList() {
+  fetch('/recipes.json')
+    .then(res => res.json())
+    .then(resp => {
+      let htmlResponse = `<h2>Sorted Recipes</h2><p><button id="sorted-alphabetically">Sort Alphabetically</button></p><table><thead><th>Recipe Name</th><th>Time</th><th>Ingredients</th></thead><tbody>`;
+      resp.sort(function(a,b){
+        const nameA = a.name.toLowerCase();
+        const nameB = b.name.toLowerCase();
+        if (nameA < nameB) {
+          return -1;
+        }
+        if (nameA > nameB) {
+          return 1;
+        }
+        return 1
+      });
+      resp.forEach(recipe => {
+        let newRecipe = new Recipe(recipe);
+        htmlResponse += newRecipe.createRecipeTableRow();
+      });
+      htmlResponse += `</tbody></table>`
+      document.getElementById("landing-content").innerHTML = htmlResponse;
+      addListenerToRecipeName();
+    })
 }
 
 function addListenerToRecipeName() {
