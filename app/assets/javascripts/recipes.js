@@ -42,7 +42,7 @@ function fetchAllRecipeData() {
   fetch('/recipes.json')
   .then(res => res.json())
   .then(resp => {
-    let htmlResponse = `<h2>All Recipes</h2><p><button id="sorted-alphabetically">Sort Alphabetically</button></p><table><thead><th>Recipe Name</th><th>Time</th><th>Ingredients</th></thead><tbody>`;
+    let htmlResponse = `<h2>All Recipes</h2><p><button id="sorted-alphabetically" class="btn btn-primary">Sort Alphabetically</button></p><table><thead><th>Recipe Name</th><th>Time</th><th>Ingredients</th></thead><tbody>`;
     resp.forEach(recipe => {
       let newRecipe = new Recipe(recipe);
       htmlResponse += newRecipe.createRecipeTableRow();
