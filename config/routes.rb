@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get '/landing' => 'recipes#landing'
 
   resources :users, only: [:new, :create] do
-    resources :recipes, except: [:show, :destroy]
+    resources :recipes, except: [:show, :edit, :update, :destroy]
   end
-  resources :recipes, only: [:index, :show, :destroy]
+  resources :recipes, only: [:index, :show]
   resources :ingredients, only: [:index, :show]
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
