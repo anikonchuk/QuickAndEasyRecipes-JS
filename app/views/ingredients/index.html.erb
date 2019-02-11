@@ -1,9 +1,0 @@
-<h1>Browse Ingredients</h1>
-
-<p>Select an ingredient below to see recipes using that ingredient. </p>
-
-<ul>
-  <% @ingredients.each do |ingredient| %>
-    <li><%= link_to ingredient.name, ingredient_path(ingredient) %></li>
-  <% end %>
-</ul>
