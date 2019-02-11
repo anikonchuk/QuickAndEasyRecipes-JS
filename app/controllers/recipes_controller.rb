@@ -57,45 +57,6 @@ class RecipesController < ApplicationController
     end
   end
 
-  def edit
-    if current_user.id == params[:user_id].to_i
-      @user = current_user
-      @recipe = @user.recipes.find_by(id: params[:id])
-      if @recipe.nil?
-        flash[:alert] = "Recipe not found in your collection."
-        redirect_to user_recipes_path(@user)
-      else
-        5.times do
-          quantity = @recipe.quantities.build
-          quantity.build_ingredient
-        end
-      end
-    else
-      flash[:alert] = "You are not authorized to edit another user's recipe."
-      redirect_to recipes_path
-    end
-  end
-
-  def update
-    @recipe = Recipe.find_by(id: params[:id])
-    @user = User.find_by(id: params[:user_id])
-    if @recipe.update(recipe_params)
-      redirect_to recipe_path(@recipe)
-    else
-      5.times do
-        quantity = @recipe.quantities.build
-        quantity.build_ingredient
-      end
-      render 'edit'
-    end
-  end
-
-  def destroy
-    @recipe = Recipe.find_by(id: params[:id])
-    @recipe.destroy
-    redirect_to recipes_path
-  end
-
   private
 
   def recipe_params
