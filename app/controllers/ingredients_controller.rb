@@ -4,18 +4,13 @@ class IngredientsController < ApplicationController
 
   def index
     @ingredients = Ingredient.by_name
-    respond_to do |f|
-      f.html {render :index}
-      f.json {render json: @ingredients}
-    end
+    render json: @ingredients, status: 201
+
   end
 
   def show
     @ingredient = Ingredient.find_by(id: params[:id])
-    respond_to do |f|
-      f.html {render :show}
-      f.json {render json: @ingredient}
-    end
+    render json: @ingredient, status: 201
   end
 
 end

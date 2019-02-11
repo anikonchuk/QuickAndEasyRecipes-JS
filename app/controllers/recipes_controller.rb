@@ -9,19 +9,13 @@ class RecipesController < ApplicationController
     if params[:user_id] && current_user.id == params[:user_id].to_i
       @user = current_user
       @recipes = @user.recipes
-      respond_to do |f|
-        f.html {render :index}
-        f.json {render json: @recipes}
-      end
+      render json: @recipes, status: 201
     elsif params[:user_id]
       flash[:alert] = "You are not authorized to view this user's page."
       redirect_to recipes_path
     else
       @recipes = Recipe.all
-      respond_to do |f|
-        f.html {render :index}
-        f.json {render json: @recipes}
-      end
+      render json: @recipes, status: 201
     end
   end
 
@@ -37,24 +31,16 @@ class RecipesController < ApplicationController
 
   def create
     @recipe = Recipe.new(recipe_params)
-    # @user = User.find_by(id: params[:user_id])
     if @recipe.save
       render json: @recipe, status: 201
     else
-      # 10.times do
-      #   quantity = @recipe.quantities.build
-      #   quantity.build_ingredient
-      # end
       render json: @recipe, status: 406
     end
   end
 
   def show
     @recipe = Recipe.find_by(id: params[:id])
-    respond_to do |f|
-      f.html {render :show}
-      f.json {render json: @recipe}
-    end
+    render json: @recipe, status: 201
   end
 
   private
