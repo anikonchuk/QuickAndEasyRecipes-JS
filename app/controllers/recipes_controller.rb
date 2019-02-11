@@ -34,19 +34,6 @@ class RecipesController < ApplicationController
     end
     render :partial => 'recipes/form', :layout => false
   end
-  # def new
-  #   if current_user.id == params[:user_id].to_i
-  #     @user = current_user
-  #     @recipe = Recipe.new(user_id: params[:user_id])
-  #     10.times do
-  #       quantity = @recipe.quantities.build
-  #       quantity.build_ingredient
-  #     end
-  #   else
-  #     flash[:alert] = "You are not authorized to create a recipe for another user."
-  #     redirect_to recipes_path
-  #   end
-  # end
 
   def create
     @recipe = Recipe.new(recipe_params)
@@ -108,28 +95,6 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path
   end
-
-  def shortest
-    @recipes = Recipe.by_shortest_time
-  end
-
-  def name
-    @recipes = Recipe.by_name
-    render 'name'
-  end
-
-  def recent
-    @recipes = Recipe.by_recently_added
-  end
-
-  def fewest_ingredients
-    @recipes = Recipe.by_fewest_ingredients
-  end
-
-  def recently_updated
-    @recipes = Recipe.by_most_recently_updated
-  end
-
 
   private
 
