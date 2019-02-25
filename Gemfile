@@ -31,7 +31,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'omniauth'
 gem 'omniauth-github'
 gem 'dotenv-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap-sass', '~> 3.4.1'
 
 gem 'jquery-rails'
 gem 'active_model_serializers'
